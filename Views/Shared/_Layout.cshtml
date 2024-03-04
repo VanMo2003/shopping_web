@@ -1,0 +1,309 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/website_shopping.styles.css" asp-append-version="true" />
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Shopping</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                                Home
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
+                                Privacy
+                            </a>
+                        </li>
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer id="footer" class="footer-wrapper ">
+        <section class="section tin-khuyen-mai bg-danger" id="section_1098406868">
+            <div class="bg section-bg fill bg-fill  ">
+            </div>
+            <div class="section-content relative">
+                <div class="row row-large" id="row-378701517">
+                    <div class="col cot1 medium-6 small-12 large-6">
+                        <div class="col-inner">
+                            <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_2022808358">
+                                <div class="img-inner dark">
+                                    <img width="550" height="157"
+                                        src="https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/banner_newsletter.png"
+                                        class="attachment-original size-original" alt=""
+                                        srcset="https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/banner_newsletter.png 550w, https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/banner_newsletter-300x86.png 300w"
+                                        sizes="(max-width: 550px) 100vw, 550px" />
+                                </div>
+                                <style scope="scope">
+                                    #image_2022808358 {
+                                        width: 100%;
+                                    }
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col cot2 medium-6 small-12 large-6">
+                        <div class="col-inner">
+                            <div class="gap-element" style="display:block; height:auto; padding-top:44px"
+                                class="clearfix"></div>
+                            <div role="form" class="wpcf7" id="wpcf7-f687-o1" lang="vi" dir="ltr">
+                                <div class="screen-reader-response"></div>
+                                <form action="/tai-khoan/#wpcf7-f687-o1" method="post" class="wpcf7-form"
+                                    novalidate="novalidate">
+                                    <div style="display: none;">
+                                        <input type="hidden" name="_wpcf7" value="687" />
+                                        <input type="hidden" name="_wpcf7_version" value="5.0.4" />
+                                        <input type="hidden" name="_wpcf7_locale" value="vi" />
+                                        <input type="hidden" name="_wpcf7_unit_tag" value="wpcf7-f687-o1" />
+                                        <input type="hidden" name="_wpcf7_container_post" value="0" />
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                    <style scope="scope">
+                    </style>
+                </div>
+
+            </div><!-- .section-content -->
+            <style scope="scope">
+                #section_1098406868 {
+                    padding-left: 25%;
+                }
+
+                #section_1098406868 {
+                    background-image: url(https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/bg_newsletter.png);
+                }
+            </style>
+        </section>
+
+        <section class="section footer-section" id="section_1269886006">
+            <div class="bg section-bg fill bg-fill  bg-loaded">
+            </div><!-- .section-bg -->
+            <div class="section-content relative">
+                <div class="row row-small" id="row-372777087">
+                    <div class="col medium-6 small-12 large-6">
+                        <div class="col-inner">
+                            <div class="row row-small" id="row-1138316112">
+                                <div class="col gioi-thieu medium-6 small-12 large-6">
+                                    <div class="col-inner" style="padding-left: 3rem;">
+                                        <h4><span style="font-size: 95%;"><strong>Giới thiệu</strong></span></h4>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" class="text-dark" href="#"
+                                                style="text-decoration: none">
+                                                Hướng dẫn mua hàng
+                                            </a>
+                                        </span>
+                                        <br>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" href="#" style="text-decoration: none">
+                                                Quy chế hoạt động
+                                            </a>
+                                        </span>
+                                        <br>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" href="#" style="text-decoration: none">
+                                                Tuyển dụng
+                                            </a>
+                                        </span>
+                                        <br>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" href="#" style="text-decoration: none">
+                                                Liên hệ
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <div class="col gioi-thieu medium-6 small-12 large-6">
+                                    <div class="col-inner">
+                                        <h4><span style="font-size: 95%;"><strong>Chính sách công ty</strong></span>
+                                        </h4>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" href="#" style="text-decoration: none">
+                                                Bảo hành &amp; đổi trả hàng
+                                            </a>
+                                        </span>
+                                        <br>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" href="#" style="text-decoration: none">
+                                                Chính sách bán hàng
+                                            </a>
+                                        </span>
+                                        <br>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" href="#" style="text-decoration: none">
+                                                Chính sách giao hàng
+                                            </a>
+                                        </span>
+                                        <br>
+                                        <span style="font-size: 90%;">
+                                            <a class="text-dark" href="#" style="text-decoration: none">
+                                                Quy định &amp; hình thức thanh toán
+                                            </a>
+                                        </span>
+                                    </div>
+                                </div>
+                                <style scope="scope">
+                                    #row-1138316112>.col>.col-inner {
+                                        padding: 0px 0px 0 0px;
+                                    }
+                                </style>
+                            </div>
+                            <div class="row row-small" id="row-324272981">
+
+                                <div class="col small-12 large-12">
+                                    <div class="col-inner" style="padding-left: 3rem;padding-top: 1rem;">
+                                        <h4><span style="font-size: 95%;"><strong>Chấp nhận thanh
+                                                    toán:</strong></span>
+                                        </h4>
+                                        <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_113421414">
+                                            <div class="img-inner dark">
+                                                <img width="420" height="65"
+                                                    src="https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/payment.png"
+                                                    class="attachment-original size-original" alt=""
+                                                    srcset="https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/payment.png 420w, https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/payment-300x46.png 300w"
+                                                    sizes="(max-width: 420px) 100vw, 420px" />
+                                            </div>
+                                            <style scope="scope">
+                                                #image_113421414 {
+                                                    width: 84%;
+                                                }
+                                            </style>
+                                        </div>
+                                    </div>
+                                </div>
+                                <style scope="scope">
+                                </style>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col medium-6 small-12 large-6">
+                        <div class="col-inner">
+                            <div class="row row-small" id="row-1767732291">
+                                <div class="col medium-6 small-12 large-6">
+                                    <div class="col-inner">
+                                        <h4><span style="font-size: 95%;"><strong>Hotline liên hệ:</strong></span></h4>
+                                        <div class="row icon-box featured-box icon-box-left text-left">
+                                            <div class="col-5 icon-box-img " style="width:60px; padding-top: 2px;">
+                                                <div class="icon">
+                                                    <div class="icon-inner">
+                                                        <img width="53" height="40"
+                                                            src="https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/icon-telephone.png"
+                                                            class="attachment-medium size-medium" alt="" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-7 icon-box-text last-reset">
+                                                <p><span style="color: #ff6600;">0385.618.713<br />
+                                                        <span style="font-size: 80%; color: #808080;">(Tất cả các ngày
+                                                            trong tuần)</span></span></p>
+
+                                            </div>
+                                        </div><!-- .icon-box -->
+
+                                        <div class="gap-element" style="display:block; height:auto; padding-top:20px"
+                                            class="clearfix"></div>
+
+                                        <div class="gap-element" style="display:block; height:auto; padding-top:20px"
+                                            class="clearfix"></div>
+                                        <h4><span style="font-size: 95%;"><strong>Chứng nhận</strong></span></h4>
+                                        <div class="img has-hover x md-x lg-x y md-y lg-y" id="image_613633915">
+                                            <div class="img-inner dark">
+                                                <img width="163" height="50"
+                                                    src="https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/guarantee_img.jpg"
+                                                    class="attachment-original size-original" alt="" />
+                                            </div>
+                                            <style scope="scope">
+                                                #image_613633915 {
+                                                    width: 59%;
+                                                }
+                                            </style>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col medium-6 small-12 large-6">
+                                    <div class="col-inner">
+
+                                        <h4><span style="font-size: 95%;"><strong>Hệ thống cửa hàng</strong></span></h4>
+                                        <p><strong>Trụ sở Tp. Hà Nội</strong><br />
+                                            <span style="font-size: 85%;">335 Cầu Giấy, Hà Nội</span>
+                                        </p>
+                                        <p><strong>Trụ sở Tp. HCM</strong><br />
+                                            <span style="font-size: 85%;">129 Nguyễn Chiến Thắng, Quận 1, Tp.HCM</span>
+                                        </p>
+                                        <p><strong>Chi nhánh Đà Nẵng</strong><br />
+                                            <span style="font-size: 85%;">123 Núi Thành, Hải Châu, Đà Nẵng</span>
+                                        </p>
+                                        <p><strong>Chi nhánh Cần Thơ</strong><br />
+                                            <span style="font-size: 85%;">234 Tô Hiệu, Tp. Cần Thơ</span>
+                                        </p>
+                                        <p><span style="font-size: 85%; color: #ff6600;">Giờ mở hàng: 7:00-22:00 hàng
+                                                ngày</span></p>
+                                    </div>
+                                </div>
+                                <style scope="scope">
+                                </style>
+                            </div>
+
+                        </div>
+                    </div>
+                    <style scope="scope">
+                    </style>
+                </div>
+            </div><!-- .section-content -->
+            <style scope="scope">
+                #section_1269886006 {
+                    padding-top: 30px;
+                    padding-bottom: 30px;
+                }
+            </style>
+        </section>
+        <div class="absolute-footer dark medium-text-center text-center bg-dark bg-gradient">
+            <div class="container clearfix">
+                <div class="footer-primary pull-left">
+                    <div class="copyright-footer">
+                        <div class="text-light" style="padding: 10px 10px"><strong>Copyright 2024 © <strong><a
+                                        href="https://topweb.com.vn" class="text-while-50">Thiết kế website Hà Nội</a>
+                                    bởi
+                                    Topweb.com.vn</strong></div>
+                    </div>
+                </div><!-- .left -->
+            </div><!-- .container -->
+        </div><!-- .absolute-footer -->
+        <a href="#top" class="back-to-top button invert plain is-outline hide-for-medium icon circle fixed bottom z-1"
+            id="top-link"><i class="icon-angle-up"></i></a>
+    </footer><!-- .footer-wrapper -->
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+
+</html>
