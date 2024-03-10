@@ -14,15 +14,15 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Shopping</a>
+                <a class="navbar-brand" asp-area="" asp-controller="Admin" asp-action="Product">Shopping</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
                     aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
+                    <ul class="navbar-nav flex-grow-1 ">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">
+                            <a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Index">
                                 Home
                             </a>
                         </li>
@@ -38,14 +38,13 @@
 
         </nav>
     </header>
-    <div class="container">
-        <main role="main" class="pb-3">
-            @RenderBody()
-        </main>
+
+    <div class="m-3">
+        @RenderBody()
     </div>
 
     <footer id="footer" class="footer-wrapper ">
-        <section class="section tin-khuyen-mai bg-danger" id="section_1098406868">
+        <section class="section tin-khuyen-mai bg-info" id="section_1098406868">
             <div class="bg section-bg fill bg-fill  ">
             </div>
             <div class="section-content relative">
