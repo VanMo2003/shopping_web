@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
-namespace website_shopping.Controllers
+namespace website_shopping.Areas.Admin.Controllers
 {
-    public class LoginController : Controller
+    [Area("Admin")]
+    public class CategoryController : Controller
     {
-        private readonly ILogger<LoginController> _logger;
+        private readonly ILogger<CategoryController> _logger;
 
-        public LoginController(ILogger<LoginController> logger)
+        public CategoryController(ILogger<CategoryController> logger)
         {
             _logger = logger;
         }
