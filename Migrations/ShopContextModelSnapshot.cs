@@ -33,6 +33,7 @@ namespace website_shopping.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("name_category");
 
@@ -110,11 +111,13 @@ namespace website_shopping.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(1000)
                         .HasColumnType("ntext")
                         .HasColumnName("description_product");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("name_product");
 
@@ -132,10 +135,6 @@ namespace website_shopping.Migrations
 
                     b.Property<int>("id_category")
                         .HasColumnType("int");
-
-                    b.Property<string>("image")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("image");
 
                     b.Property<int>("quantity")
                         .HasColumnType("int")
