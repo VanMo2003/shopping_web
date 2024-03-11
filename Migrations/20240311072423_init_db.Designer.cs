@@ -12,7 +12,7 @@ using website_shopping.Models.Contexts;
 namespace website_shopping.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20240310050248_init_db")]
+    [Migration("20240311072423_init_db")]
     partial class init_db
     {
         /// <inheritdoc />
@@ -36,6 +36,7 @@ namespace website_shopping.Migrations
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("name_category");
 
@@ -113,11 +114,13 @@ namespace website_shopping.Migrations
 
                     b.Property<string>("Description")
                         .IsRequired()
+                        .HasMaxLength(1000)
                         .HasColumnType("ntext")
                         .HasColumnName("description_product");
 
                     b.Property<string>("Name")
                         .IsRequired()
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("name_product");
 
@@ -135,10 +138,6 @@ namespace website_shopping.Migrations
 
                     b.Property<int>("id_category")
                         .HasColumnType("int");
-
-                    b.Property<string>("image")
-                        .HasColumnType("nvarchar(max)")
-                        .HasColumnName("image");
 
                     b.Property<int>("quantity")
                         .HasColumnType("int")

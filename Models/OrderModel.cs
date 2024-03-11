@@ -17,11 +17,16 @@ namespace website_shopping.Models
         public virtual UserModel UserModel { get; set; }
         [Column("payment_method")]
         public bool PaymentMethods { get; set; }
+        [Required]
         [Column("address", TypeName = "nvarchar")]
+        [StringLength(155)]
         public string Address { get; set; }
+        [Required]
         [Column("total_money", TypeName = "money")]
         public decimal TotalMoney { get; set; }
+        [Required]
         [Column("list_product", TypeName = "nvarchar")]
+        [StringLength(1000)]
         public string ListProduct { get; set; }
         [Column("time_create")]
         public DateTime TimeCreate { get; set; } = DateTime.Now;

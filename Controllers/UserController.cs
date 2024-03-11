@@ -11,7 +11,7 @@ namespace website_shopping.Controllers
 {
     public class UserController : Controller
     {
-        public UserModel? UserModel { set; get; }
+        public UserModel UserModel { set; get; }
         private readonly ILogger<UserController> _logger;
 
         public UserController(ILogger<UserController> logger)

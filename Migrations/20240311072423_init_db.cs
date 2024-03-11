@@ -17,7 +17,7 @@ namespace website_shopping.Migrations
                 {
                     id_category = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name_category = table.Column<string>(type: "nvarchar", nullable: false),
+                    name_category = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
                     time_create = table.Column<DateTime>(type: "datetime2", nullable: false),
                     time_update = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -46,11 +46,10 @@ namespace website_shopping.Migrations
                 {
                     id_product = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    name_product = table.Column<string>(type: "nvarchar", nullable: false),
-                    description_product = table.Column<string>(type: "ntext", nullable: false),
+                    name_product = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
+                    description_product = table.Column<string>(type: "ntext", maxLength: 1000, nullable: false),
                     unit_price = table.Column<decimal>(type: "money", nullable: false),
                     quantity = table.Column<int>(type: "int", nullable: false),
-                    image = table.Column<string>(type: "nvarchar(max)", nullable: true),
                     id_category = table.Column<int>(type: "int", nullable: false),
                     time_create = table.Column<DateTime>(type: "datetime2", nullable: false),
                     time_update = table.Column<DateTime>(type: "datetime2", nullable: false)

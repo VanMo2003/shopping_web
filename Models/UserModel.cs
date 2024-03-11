@@ -11,11 +11,10 @@ namespace website_shopping.Models
         [DisplayName("Tài khoản : ")]
         [Column("username", TypeName = "nvarchar")]
         public string Username { get; set; }
-        [Required]
+        [Required(ErrorMessage = "Mời bạn nhập mật khẩu")]
         [StringLength(50, MinimumLength = 6, ErrorMessage = "Tối thiểu {2} ký tự")]
         [DisplayName("Mật khẩu : ")]
         [Column("password", TypeName = "nvarchar")]
-
         public string Password { get; set; }
         [Column("full_name", TypeName = "nvarchar")]
         [DisplayName("Họ và tên : ")]
