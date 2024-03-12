@@ -12,7 +12,7 @@ using website_shopping.Models.Contexts;
 namespace website_shopping.Migrations
 {
     [DbContext(typeof(ShopContext))]
-    [Migration("20240311072423_init_db")]
+    [Migration("20240312134009_init_db")]
     partial class init_db
     {
         /// <inheritdoc />
@@ -27,12 +27,12 @@ namespace website_shopping.Migrations
 
             modelBuilder.Entity("website_shopping.Models.CategoryModel", b =>
                 {
-                    b.Property<int>("id")
+                    b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("int")
                         .HasColumnName("id_category");
 
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("id"));
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -48,7 +48,7 @@ namespace website_shopping.Migrations
                         .HasColumnType("datetime2")
                         .HasColumnName("time_update");
 
-                    b.HasKey("id");
+                    b.HasKey("Id");
 
                     b.ToTable("Categories");
                 });
@@ -64,11 +64,13 @@ namespace website_shopping.Migrations
 
                     b.Property<string>("Address")
                         .IsRequired()
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("address");
 
                     b.Property<string>("ListProduct")
                         .IsRequired()
+                        .HasMaxLength(1000)
                         .HasColumnType("nvarchar")
                         .HasColumnName("list_product");
 
@@ -94,7 +96,7 @@ namespace website_shopping.Migrations
 
                     b.Property<string>("username")
                         .IsRequired()
-                        .HasColumnType("nvarchar(20)");
+                        .HasColumnType("nvarchar(155)");
 
                     b.HasKey("Id");
 
@@ -118,11 +120,20 @@ namespace website_shopping.Migrations
                         .HasColumnType("ntext")
                         .HasColumnName("description_product");
 
+                    b.Property<string>("ImageString")
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("image");
+
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("name_product");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int")
+                        .HasColumnName("quantity");
 
                     b.Property<DateTime>("TimeCreate")
                         .HasColumnType("datetime2")
@@ -136,12 +147,8 @@ namespace website_shopping.Migrations
                         .HasColumnType("money")
                         .HasColumnName("unit_price");
 
-                    b.Property<int>("id_category")
+                    b.Property<int?>("id_category")
                         .HasColumnType("int");
-
-                    b.Property<int>("quantity")
-                        .HasColumnType("int")
-                        .HasColumnName("quantity");
 
                     b.HasKey("Id");
 
@@ -153,25 +160,33 @@ namespace website_shopping.Migrations
             modelBuilder.Entity("website_shopping.Models.UserModel", b =>
                 {
                     b.Property<string>("Username")
-                        .HasMaxLength(20)
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("username");
 
-                    b.Property<string>("Email")
+                    b.Property<string>("Address")
                         .IsRequired()
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
-                        .HasColumnName("email");
+                        .HasColumnName("address");
 
                     b.Property<string>("Fullname")
                         .IsRequired()
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("full_name");
 
                     b.Property<string>("Password")
                         .IsRequired()
-                        .HasMaxLength(50)
+                        .HasMaxLength(155)
                         .HasColumnType("nvarchar")
                         .HasColumnName("password");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasMaxLength(10)
+                        .HasColumnType("nvarchar")
+                        .HasColumnName("phone_number");
 
                     b.HasKey("Username");
 
@@ -193,9 +208,7 @@ namespace website_shopping.Migrations
                 {
                     b.HasOne("website_shopping.Models.CategoryModel", "CategoryModel")
                         .WithMany()
-                        .HasForeignKey("id_category")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("id_category");
 
                     b.Navigation("CategoryModel");
                 });
