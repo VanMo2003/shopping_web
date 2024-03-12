@@ -34,17 +34,21 @@ namespace website_shopping.Models
         [DisplayName("Số lượng : ")]
         [Range(0, 100, ErrorMessage = "số lượng phải trong khoảng [{1}, {2}]")]
         public int Quantity { get; set; }
+        [StringLength(200)]
+        [DisplayName("Chọn ảnh :")]
+        [Column("image", TypeName = "nvarchar")]
+        public string? ImageString { get; set; }
         [DisplayName("danh mục :")]
-        public int id_category { get; set; }
+        public int? id_category { get; set; }
         [ForeignKey("id_category")]
         [DisplayName("danh mục :")]
-        public virtual CategoryModel CategoryModel { get; set; }
+        public virtual CategoryModel? CategoryModel { get; set; }
         [Column("time_create")]
         public DateTime TimeCreate { get; set; } = DateTime.Now;
         [Column("time_update")]
         public DateTime TimeUpdate { get; set; } = DateTime.Now;
 
-        public void PrintInfo() => Console.WriteLine($"{Id} - {Name} - {Description} - {UnitPrice} - {Quantity} - {id_category} - {TimeCreate} - {TimeUpdate}");
+        public void PrintInfo() => Console.WriteLine($"{Id} - {Name} - {Description} - {UnitPrice} - {Quantity} - {id_category} - {ImageString} - {TimeCreate} - {TimeUpdate}");
         public bool checkNull() => !Name.IsNullOrEmpty() && !Description.IsNullOrEmpty() && UnitPrice > 0 && Quantity > 0;
     }
 }

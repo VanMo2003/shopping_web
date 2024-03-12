@@ -3,6 +3,11 @@
 @{
     ViewData["Title"] = "Đăng nhập";
 }
+<style>
+    .form-control {
+        margin-top: 5px;
+    }
+</style>
 
 <div id="wrapper">
     <div id="container">
@@ -23,7 +28,10 @@
                     <input type="submit" value="Đăng nhập" class="btn btn-info mt-3 text-light">
                 </div>
             </form>
-
+            @if (ViewData["Error"] != null)
+            {
+                <div class="alert alert-danger">@ViewData["Error"]</div>
+            }
         </div>
     </div>
     <form action=""></form>

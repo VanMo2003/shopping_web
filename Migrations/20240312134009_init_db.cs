@@ -30,10 +30,11 @@ namespace website_shopping.Migrations
                 name: "Users",
                 columns: table => new
                 {
-                    username = table.Column<string>(type: "nvarchar(20)", maxLength: 20, nullable: false),
-                    password = table.Column<string>(type: "nvarchar(50)", maxLength: 50, nullable: false),
-                    full_name = table.Column<string>(type: "nvarchar", nullable: false),
-                    email = table.Column<string>(type: "nvarchar", nullable: false)
+                    username = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
+                    password = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
+                    full_name = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
+                    address = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
+                    phone_number = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
                 },
                 constraints: table =>
                 {
@@ -50,7 +51,8 @@ namespace website_shopping.Migrations
                     description_product = table.Column<string>(type: "ntext", maxLength: 1000, nullable: false),
                     unit_price = table.Column<decimal>(type: "money", nullable: false),
                     quantity = table.Column<int>(type: "int", nullable: false),
-                    id_category = table.Column<int>(type: "int", nullable: false),
+                    image = table.Column<string>(type: "nvarchar(200)", maxLength: 200, nullable: true),
+                    id_category = table.Column<int>(type: "int", nullable: true),
                     time_create = table.Column<DateTime>(type: "datetime2", nullable: false),
                     time_update = table.Column<DateTime>(type: "datetime2", nullable: false)
                 },
@@ -61,8 +63,7 @@ namespace website_shopping.Migrations
                         name: "FK_Products_Categories_id_category",
                         column: x => x.id_category,
                         principalTable: "Categories",
-                        principalColumn: "id_category",
-                        onDelete: ReferentialAction.Cascade);
+                        principalColumn: "id_category");
                 });
 
             migrationBuilder.CreateTable(
@@ -71,11 +72,11 @@ namespace website_shopping.Migrations
                 {
                     id_order = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    username = table.Column<string>(type: "nvarchar(20)", nullable: false),
+                    username = table.Column<string>(type: "nvarchar(155)", nullable: false),
                     payment_method = table.Column<bool>(type: "bit", nullable: false),
-                    address = table.Column<string>(type: "nvarchar", nullable: false),
+                    address = table.Column<string>(type: "nvarchar(155)", maxLength: 155, nullable: false),
                     total_money = table.Column<decimal>(type: "money", nullable: false),
-                    list_product = table.Column<string>(type: "nvarchar", nullable: false),
+                    list_product = table.Column<string>(type: "nvarchar(1000)", maxLength: 1000, nullable: false),
                     time_create = table.Column<DateTime>(type: "datetime2", nullable: false),
                     time_update = table.Column<DateTime>(type: "datetime2", nullable: false),
                     payment_status = table.Column<bool>(type: "bit", nullable: false)

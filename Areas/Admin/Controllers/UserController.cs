@@ -9,11 +9,11 @@ using Microsoft.Extensions.Logging;
 namespace website_shopping.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    public class ClientController : Controller
+    public class UserController : Controller
     {
-        private readonly ILogger<ClientController> _logger;
+        private readonly ILogger<UserController> _logger;
 
-        public ClientController(ILogger<ClientController> logger)
+        public UserController(ILogger<UserController> logger)
         {
             _logger = logger;
         }

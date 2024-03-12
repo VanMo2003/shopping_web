@@ -38,16 +38,10 @@
                 <select asp-for="id_category" class="form-control" asp-items="ViewBag.id_category"></select>
                 <span asp-validation-for="id_category" class="text-danger"></span>
             </div>
-            @* <div class="form-group mb-3">
-            <label asp-for="TimeCreate" class="control-label"></label>
-            <input asp-for="TimeCreate" class="form-control" />
-            <span asp-validation-for="TimeCreate" class="text-danger"></span>
+            <div class="form-group">
+                <label class="control-label">Chọn ảnh :</label>
+                <input type="file" name="file" class="form-control" />
             </div>
-            <div class="form-group mb-3">
-            <label asp-for="TimeUpdate" class="control-label"></label>
-            <input asp-for="TimeUpdate" class="form-control" />
-            <span asp-validation-for="TimeUpdate" class="text-danger"></span>
-            </div> *@
             <div class="form-group mb-3 my-3">
                 <input type="submit" value="Lưu thay đổi" class="btn btn-primary" />
             </div>
