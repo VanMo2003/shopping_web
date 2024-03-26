@@ -1,8 +1,9 @@
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace website_shopping.Models.Contexts
 {
-    public class ShopContext : DbContext
+    public class ShopContext : IdentityDbContext<UserModel>
     {
         public DbSet<UserModel> Users { get; set; }
         public DbSet<CategoryModel> Categories { get; set; }
@@ -18,6 +19,15 @@ namespace website_shopping.Models.Contexts
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
+
+            foreach (var entity in modelBuilder.Model.GetEntityTypes())
+            {
+                var tableName = entity.GetTableName();
+                if (tableName.StartsWith("AspNet"))
+                {
+                    entity.SetTableName(tableName.Substring(6));
+                }
+            }
         }
     }
 }

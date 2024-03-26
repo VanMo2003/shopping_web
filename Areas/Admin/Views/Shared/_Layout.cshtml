@@ -12,7 +12,7 @@
 
 <body class="container-fluid">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-info border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Admin" asp-action="Product">Shopping</a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
@@ -21,16 +21,16 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between ">
                     <ul class="navbar-nav flex-grow-1 ">
-                        <li class="nav-item">
-                            <a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Index">
-                                Home
-                            </a>
+                        @* <li class="nav-item">
+                        <a class="nav-link text-dark " asp-area="" asp-controller="Home" asp-action="Index">
+                        Home
+                        </a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
-                                Privacy
-                            </a>
-                        </li>
+                        <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">
+                        Privacy
+                        </a>
+                        </li> *@
                     </ul>
                     <partial name="_LoginPartial" />
                 </div>
@@ -39,11 +39,8 @@
         </nav>
     </header>
 
-    <div style="min-height: 90vh;" class="mb-3">
-        <div>
-            @RenderBody()
-        </div>
-    </div>
+    @RenderBody()
+
 
     <footer id="footer" class="footer-wrapper ">
         <section class="section tin-khuyen-mai bg-info" id="section_1098406868">
@@ -99,9 +96,7 @@
                     padding-left: 25%;
                 }
 
-                #section_1098406868 {
-                    background-image: url(https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/bg_newsletter.png);
-                }
+                @*#section_1098406868{background-image:url(https://nuochoa.sharekhoahoc.vn/wp-content/uploads/2018/08/bg_newsletter.png);}*@
             </style>
         </section>
 

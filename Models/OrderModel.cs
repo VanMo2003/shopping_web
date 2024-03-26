@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
@@ -12,9 +13,12 @@ namespace website_shopping.Models
         [Key]
         [Column("id_order")]
         public int Id { get; set; }
-        public string username { get; set; }
-        [ForeignKey("username")]
-        public virtual UserModel UserModel { get; set; }
+        [DisplayName("tên khách hàng: ")]
+        public string Fullname { get; set; }
+        [ForeignKey("full_name")]
+        [DisplayName("tên khách hàng: ")]
+        public virtual UserModel userModel { get; set; }
+
         [Column("payment_method")]
         public bool PaymentMethods { get; set; }
         [Required]
@@ -24,10 +28,12 @@ namespace website_shopping.Models
         [Required]
         [Column("total_money", TypeName = "money")]
         public decimal TotalMoney { get; set; }
-        [Required]
-        [Column("list_product", TypeName = "nvarchar")]
-        [StringLength(1000)]
-        public string ListProduct { get; set; }
+        // [Required]
+        // [Column("list_product", TypeName = "nvarchar")]
+        // [StringLength(1000)]
+        // public string ListProduct { get; set; }
+        [Column("order_id")]
+        public ICollection<ProductModel> Products { get; set; }
         [Column("time_create")]
         public DateTime TimeCreate { get; set; } = DateTime.Now;
         [Column("time_update")]

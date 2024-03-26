@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using website_shopping.Models;
 using website_shopping.Models.Contexts;
+using website_shopping.Utils;
 
 namespace website_shopping.Areas_Admin_Controllers
 {
@@ -72,10 +73,13 @@ namespace website_shopping.Areas_Admin_Controllers
 
             if (file != null && ModelState.IsValid)
             {
-                bool checkUpload = await UpdateLoadImage(file);
+                Random random = new Random();
+                string fileName = random.NextString(40);
+                Console.WriteLine("random string : " + fileName);
+                bool checkUpload = await UpdateLoadImage(file, fileName + ".");
                 if (checkUpload)
                 {
-                    productModel.ImageString = file.FileName;
+                    productModel.ImageString = fileName + "." + file.FileName.Split(".")[1];
                     _logger.LogInformation("image : " + productModel.ImageString);
                     productModel.PrintInfo();
                     _context.Add(productModel);
@@ -186,7 +190,7 @@ namespace website_shopping.Areas_Admin_Controllers
             return _context.Products.Any(e => e.Id == id);
         }
 
-        private async Task<bool> UpdateLoadImage(IFormFile file)
+        private async Task<bool> UpdateLoadImage(IFormFile file, string fileName)
         {
             string uploadsFolder = Path.Combine(_webHostEnvironment.WebRootPath, "uploads", "products");
 
@@ -195,7 +199,7 @@ namespace website_shopping.Areas_Admin_Controllers
                 Directory.CreateDirectory(uploadsFolder);
             }
 
-            string fileName = Path.GetFileName(file.FileName);
+            fileName += Path.GetFileName(file.FileName).Split(".")[1];
             if (!CheckExistFileName(uploadsFolder, fileName))
             {
                 string fileSavePath = Path.Combine(uploadsFolder, fileName);

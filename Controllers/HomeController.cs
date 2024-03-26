@@ -1,6 +1,7 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using website_shopping.Models;
+using website_shopping.Models.Contexts;
 
 namespace website_shopping.Controllers;
 
@@ -19,6 +20,37 @@ public class HomeController : Controller
     }
 
     public IActionResult Privacy()
+    {
+        return View();
+    }
+
+    public IActionResult DetailProduct(int? id)
+    {
+        _logger.LogInformation("id : " + id);
+        return View(model: id);
+    }
+
+    public IActionResult Introduce()
+    {
+        return View();
+    }
+    public IActionResult Product()
+    {
+        return View();
+    }
+    public IActionResult AgencyPolicy()
+    {
+        return View();
+    }
+    public IActionResult Recruitment()
+    {
+        return View();
+    }
+    public IActionResult News()
+    {
+        return View();
+    }
+    public IActionResult Cart()
     {
         return View();
     }
