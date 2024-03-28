@@ -22,11 +22,14 @@ namespace website_shopping.Areas.Identity.Pages.Account
     {
         private readonly SignInManager<UserModel> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly UserManager<UserModel> _UserManager;
 
-        public LoginModel(SignInManager<UserModel> signInManager, ILogger<LoginModel> logger)
+        public LoginModel(SignInManager<UserModel> signInManager, ILogger<LoginModel> logger, UserManager<UserModel> UserManager)
         {
             _signInManager = signInManager;
             _logger = logger;
+            _UserManager = UserManager;
+
         }
 
         /// <summary>
@@ -115,6 +118,11 @@ namespace website_shopping.Areas.Identity.Pages.Account
                 if (result.Succeeded)
                 {
                     _logger.LogInformation("User logged in.");
+                    Console.WriteLine("Email : " + Input.Email);
+                    if (Input.Email.Equals("Admin@gmail.com"))
+                    {
+                        returnUrl = Url.Content("~/Admin/Product");
+                    }
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)

@@ -1,0 +1,108 @@
+@using website_shopping.Models.Contexts
+@using Microsoft.AspNetCore.Identity
+@inject ShopContext ShopContext
+@inject SignInManager<UserModel> SignInManager
+@inject UserManager<UserModel> UserManager
+
+@{
+    var cart = ShopContext.Users.Where(user => user.Email == UserManager.GetUserName(User)).FirstOrDefault()!.carts;
+    double totalCarts = 0;
+}
+
+@if (SignInManager.IsSignedIn(User))
+{
+    ViewData["Title"] = "Giỏ hàng";
+
+    <h1>Giỏ hàng</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    Ảnh
+                </th>
+
+                <th>
+                    Tên sản phẩm
+                </th>
+                <th>
+                    Giá
+                </th>
+                <th>
+                    Số lượng
+                </th>
+                <th>
+                    Tổng cộng
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (cart != null && cart != "")
+            {
+                @foreach (var c in cart.Split(","))
+                {
+                    if (c != null && c != "")
+                    {
+                        var proID = int.Parse(c.Split("-")[0]);
+                        var proQuantity = int.Parse(c.Split("-")[1]);
+                        var product = ShopContext.Products.Where(p => p.Id == proID).FirstOrDefault();
+                        if (product != null)
+                        {
+                            totalCarts += Decimal.ToDouble(product.UnitPrice) * proQuantity;
+                            <tr>
+                                <td width="10%">
+                                    <img style="width: 100%;" class="rounded-4 fit" src="/uploads/products/@product.ImageString" />
+                                </td>
+                                <td width="30%">
+
+                                    <div style="font-weight: bold;">@product.Name</div>
+                                    <div>@product.Description</div>
+                                </td>
+                                <td>
+                                    @formatPrice(Decimal.ToDouble(product.UnitPrice))
+                                </td>
+                                <td>
+                                    <div class="product-quantity">
+                                        <input type="number" value="@proQuantity" min="1">
+                                    </div>
+                                </td>
+                                <td>
+                                    @{
+                                        double unit_price = Decimal.ToDouble(@product.UnitPrice);
+                                        var totals = unit_price * proQuantity;
+                                    }
+                                    @formatPrice(totals)
+                                </td>
+                                <td td width="5%">
+                                    <a asp-area="" asp-controller="Cart" asp-action="Delete" asp-route-id="@product.Id"
+                                        class="btn btn-danger">Xóa</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+
+                }
+            }
+        </tbody>
+    </table>
+
+    <div class="mb-3" style="text-align: right;">
+        <div class="row">
+            <div class="totals-item">
+                <h3>Tổng cộng giỏ hàng</h3>
+                <h3 class="totals-value" id="cart-subtotal">@formatPrice(totalCarts)</h3>
+            </div>
+        </div>
+
+        <button class="btn btn-primary">Checkout</button>
+    </div>
+
+}
+@{
+    string formatPrice(double price)
+    {
+        System.Globalization.CultureInfo cul = System.Globalization.CultureInfo.GetCultureInfo("vi-VN"); // try with "en-US"
+        return double.Parse("" + price).ToString("#,###", cul.NumberFormat) + " VNĐ";
+    }
+
+}
