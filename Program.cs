@@ -44,7 +44,7 @@ internal class Program
             options.User.RequireUniqueEmail = true; //* Email là duy nhất
 
             //! Cấu hình đăng nhập
-            options.SignIn.RequireConfirmedEmail = false;        //* Cấu hình xác thực địa chỉ email (phải xác thực email mới đăng nhập lại được) 
+            options.SignIn.RequireConfirmedEmail = false;       //* Cấu hình xác thực địa chỉ email (phải xác thực email mới đăng nhập lại được) 
             options.SignIn.RequireConfirmedPhoneNumber = false; //* Xác thực số điện thoại
         });
 

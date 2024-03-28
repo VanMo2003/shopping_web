@@ -11,7 +11,7 @@
 </style>
 @if (SignInManager.IsSignedIn(User))
 {
-    <a class="nav-link text-light" asp-area="" asp-controller="Home" asp-action="Cart">Giỏ hàng</a>
+    <a class="nav-link text-light" asp-area="" asp-controller="Cart" asp-action="GetAll">Giỏ hàng</a>
 
     <form asp-area="Identity" asp-controller="Account" asp-action="LogOff" method="post" id="logoutForm"
         class="navbar-right">

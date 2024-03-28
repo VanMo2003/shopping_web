@@ -7,20 +7,20 @@
 <div style="min-height: 60vh;" class="mb-3">
     <div>
         <div class="row">
-            <div class="col-3">
-                <a class="list-group-item active bg-info fw-bold">
-                    Danh mục
-                </a>
-                @foreach (var item in ShopContext.Categories)
-                {
-                    <a class="list-group-item list-group-item-action list-group-item-primary">
-                        @item.Name
-                    </a>
-                }
-            </div>
-            <div class="col-9">@RenderBody()</div>
+            @* <div class="col-3">
+            <a class="list-group-item active bg-info fw-bold">
+            Danh mục
+            </a>
+            @foreach (var item in ShopContext.Categories)
+            {
+            <a class="list-group-item list-group-item-action list-group-item-primary">
+            @item.Name
+            </a>
+            }
+            </div> *@
+            <div class="col-12">@RenderBody()</div>
         </div>
-        <div class="my-5">
+        <div class="my-3">
             <img width="100%" src="https://cmon.vn/wp-content/uploads/2022/07/banner.webp"
                 class="attachment-original size-original" alt="" />
         </div>
